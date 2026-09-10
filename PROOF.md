@@ -1,1214 +1,304 @@
 # Asymptotic Evaluation of a Coprime Two-Parameter Totient Sum
 
+[← Overview](README.md)
+
 ## Abstract
 
-Define
+We evaluate the leading term of the sum of $1/\varphi(4ua)$ over coprime positive integers $u,a\le J$. The result is
 
 ```math
-W(J)
-:=
-\sum_{\substack{1\le u,a\le J\$u,a)=1}}
-\frac{1}{\varphi(4ua)},
+W(J)\sim\frac9{2\pi^2}(\log J)^2.
 ```
 
-where $\varphi$ denotes Euler's totient function.
+The proof factors a two-variable Dirichlet series into two zeta factors and an Euler product with absolutely summable coefficients. A harmonic-sum convolution then gives the asymptotic formula by dominated convergence.
 
-We prove the asymptotic formula
+## 1. Theorem and notation
 
-```math
-\boxed{
-W(J)
-\sim
-\frac{9}{2\pi^2}(\log J)^2
-}
-\qquad (J\to\infty).
-```
+Throughout, $u,a,d,e,m,n$ are positive integers, $p$ denotes a prime, $\varphi$ is Euler's totient function, and $\log$ is the natural logarithm.
 
-In particular,
+**Theorem.** For positive integers $J\to\infty$,
 
 ```math
-\frac{9}{2\pi^2}
+W(J):=\sum_{\substack{1\le u,a\le J\\ \gcd(u,a)=1}}
+\frac1{\varphi(4ua)}
 =
-0.45594532639052\ldots>0.45,
+\left(\frac9{2\pi^2}+o(1)\right)(\log J)^2.
 ```
 
-and hence
+The same statement holds for real $J\to\infty$, since the sum depends only on $\lfloor J\rfloor$.
+
+## 2. The Dirichlet series and its Euler factors
+
+For $\Re s>0$ and $\Re t>0$, define
 
 ```math
-W(J)
-\ge
-(0.45+o(1))(\log J)^2.
-```
-
-This establishes the specific lower bound proposed as an open quantitative problem in Benjamin Dahan's 2026 preprint on sieve dimension and search depth for the Erdős–Straus conjecture.
-
-This note does **not** prove the Erdős–Straus conjecture.
-
-No claim of literature priority is made here. The argument should be independently checked before being treated as an established result.
-
----
-
-## 1. Statement of the theorem
-
-### Theorem
-
-Let
-
-```math
-W(J)
-=
-\sum_{\substack{u,a\le J\$u,a)=1}}
-\frac1{\varphi(4ua)}.
-```
-
-Then
-
-```math
-\boxed{
-\lim_{J\to\infty}
-\frac{W(J)}{(\log J)^2}
-=
-\frac9{2\pi^2}.
-}
-```
-
-Equivalently,
-
-```math
-\boxed{
-W(J)
-=
-\left(
-\frac9{2\pi^2}+o(1)
-\right)(\log J)^2.
-}
-```
-
-The proof proceeds by studying a two-variable Dirichlet series and extracting its two logarithmic poles.
-
----
-
-# 2. The two-variable Dirichlet series
-
-For complex $s,t$ with initially
-
-```math
-\Re s>0,\qquad \Re t>0,
-```
-
-define
-
-```math
-F(s,t)
-:=
-\sum_{\substack{u,a\ge1\$u,a)=1}}
+F(s,t)=
+\sum_{\substack{u,a\ge1\\ \gcd(u,a)=1}}
 \frac{u^{-s}a^{-t}}{\varphi(4ua)}.
 ```
 
-Because of the coprimality condition
+Coprimality means that each prime divides at most one of $u$ and $a$. Multiplicativity of $\varphi$, with the fixed factor $4$ assigned to the prime $2$, gives
 
 ```math
-(u,a)=1,
+F(s,t)=L_2(s,t)\prod_{p>2}L_p(s,t).
 ```
 
-a prime may divide $u$, or divide $a$, but cannot divide both.
+### Odd primes
 
-This produces an Euler product
-
-```math
-F(s,t)
-=
-L_2(s,t)
-\prod_{p>2}L_p(s,t),
-```
-
-where the prime $2$ must be treated separately because of the fixed factor $4$ in $\varphi(4ua)$.
-
----
-
-# 3. Euler factors at odd primes
-
-Let $p>2$ be prime.
-
-If $p^r\Vert u$, with $r\ge1$, then $p\nmid a$, and
-
-```math
-\frac1{\varphi(p^r)}
-=
-\frac1{p^{r-1}(p-1)}.
-```
-
-Therefore
-
-```math
-\sum_{r\ge1}
-\frac{p^{-rs}}{\varphi(p^r)}
-=
-\sum_{r\ge1}
-\frac{p^{-rs}}{p^{r-1}(p-1)}.
-```
-
-Since
-
-```math
-\frac1{p^{r-1}(p-1)}
-=
-\frac{p}{p-1}p^{-r},
-```
-
-we obtain
-
-```math
-\sum_{r\ge1}
-\frac{p^{-rs}}{\varphi(p^r)}
-=
-\frac{p}{p-1}
-\sum_{r\ge1}p^{-r(1+s)}.
-```
-
-Summing the geometric series gives
-
-```math
-\sum_{r\ge1}
-\frac{p^{-rs}}{\varphi(p^r)}
-=
-\frac{p^{-s}}
-{(p-1)(1-p^{-1-s})}.
-```
-
-The corresponding contribution when powers of $p$ occur in $a$ is obtained by replacing $s$ with $t$.
-
-Thus
-
-```math
-\boxed{
-L_p(s,t)
-=
-1+
-\frac{p^{-s}}
-{(p-1)(1-p^{-1-s})}
-+
-\frac{p^{-t}}
-{(p-1)(1-p^{-1-t})}.
-}
-```
-
----
-
-# 4. The Euler factor at $2$
-
-Because
-
-```math
-(u,a)=1,
-```
-
-at most one of $u,a$ can be even.
-
-If neither is even, the $2$-part of the denominator is simply
-
-```math
-\varphi(4)=2,
-```
-
-giving a contribution
-
-```math
-\frac12.
-```
-
-If
-
-```math
-2^r\Vert u,\qquad r\ge1,
-```
-
-then
-
-```math
-\varphi(4\cdot2^r)
-=
-\varphi(2^{r+2})
-=
-2^{r+1}.
-```
-
-Hence the even-$u$ contribution is
-
-```math
-\sum_{r\ge1}
-\frac{2^{-rs}}{2^{r+1}}
-=
-\frac12
-\sum_{r\ge1}2^{-r(1+s)}.
-```
-
-Therefore
-
-```math
-\sum_{r\ge1}
-\frac{2^{-rs}}{2^{r+1}}
-=
-\frac12
-\frac{2^{-1-s}}
-{1-2^{-1-s}}.
-```
-
-Similarly for $a$. Consequently
-
-```math
-\boxed{
-L_2(s,t)
-=
-\frac12
-+
-\frac12
-\frac{2^{-1-s}}{1-2^{-1-s}}
-+
-\frac12
-\frac{2^{-1-t}}{1-2^{-1-t}}.
-}
-```
-
----
-
-# 5. Extracting the two zeta poles
-
-The expected $(\log J)^2$ behavior corresponds to two copies of the pole of the Riemann zeta function at $1$.
-
-Define
-
-```math
-H(s,t)
-:=
-\frac{F(s,t)}
-{\zeta(1+s)\zeta(1+t)}.
-```
-
-Thus
-
-```math
-\boxed{
-F(s,t)
-=
-\zeta(1+s)\zeta(1+t)H(s,t).
-}
-```
-
-We now compute the Euler factors of $H$.
-
----
-
-## 5.1 Odd-prime factors of $H$
-
-Put
-
-```math
-A=p^{-1-s},
-\qquad
-B=p^{-1-t}.
-```
-
-Then
-
-```math
-p^{-s}=pA,\qquad p^{-t}=pB.
-```
-
-Hence
+For $p>2$, put $x=p^{-1-s}$ and $y=p^{-1-t}$. Since $\varphi(p^r)=p^{r-1}(p-1)$ for $r\ge1$,
 
 ```math
 L_p(s,t)
-=
-1+
-\frac{pA}{(p-1)(1-A)}
-+
-\frac{pB}{(p-1)(1-B)}.
+=1+\sum_{r\ge1}\frac{p^{-rs}}{\varphi(p^r)}
+  +\sum_{r\ge1}\frac{p^{-rt}}{\varphi(p^r)}
+=1+\frac{p}{p-1}\left(\frac{x}{1-x}+\frac{y}{1-y}\right).
 ```
 
-The local Euler factor arising from the two zeta functions is
+### The prime 2
+
+If both parameters are odd, the $2$-part contributes $1/\varphi(4)=1/2$. If $2^r$ divides exactly one parameter, its contribution is $1/\varphi(2^{r+2})=2^{-r-1}$.
+
+Thus, with $x=2^{-1-s}$ and $y=2^{-1-t}$,
 
 ```math
-(1-A)^{-1}(1-B)^{-1}.
+L_2(s,t)=\frac12\left(1+\frac{x}{1-x}+\frac{y}{1-y}\right).
 ```
 
-Therefore
+For real $\sigma,\tau>0$, the odd-prime factors satisfy
+$L_p(\sigma,\tau)-1=O(p^{-1-\sigma}+p^{-1-\tau})$.
+Their product therefore converges. Expanding finite prime products and taking an increasing limit proves convergence of the positive coefficient sum. Taking $\sigma=\Re s$ and $\tau=\Re t$ also establishes absolute convergence of $F(s,t)$ and justifies its Euler product in the stated region.
+
+## 3. Factoring out the two zeta functions
+
+Define $H$ by
+
+```math
+F(s,t)=\zeta(1+s)\zeta(1+t)H(s,t).
+```
+
+Multiplying each local factor by $(1-p^{-1-s})(1-p^{-1-t})$ gives, for $p>2$,
+
+```math
+\begin{aligned}
+H_p(s,t)
+&=(1-x)(1-y)
+  +\frac{p}{p-1}\bigl[x(1-y)+y(1-x)\bigr]\\
+&=1+\frac{x+y}{p-1}-\frac{p+1}{p-1}xy\\
+&=1+\frac{p^{-1-s}+p^{-1-t}}{p-1}
+  -\frac{p+1}{p-1}p^{-2-s-t}.
+\end{aligned}
+```
+
+At the prime $2$,
+
+```math
+H_2(s,t)
+=\frac12\bigl[(1-x)(1-y)+x(1-y)+y(1-x)\bigr]
+=\frac12(1-2^{-2-s-t}).
+```
+
+Consequently,
+
+```math
+H(s,t)=H_2(s,t)\prod_{p>2}H_p(s,t).
+```
+
+## 4. Absolute summability of the coefficients
+
+We need absolute convergence of the coefficient series, not merely a value of the Euler product at the origin. This follows directly from the local polynomials.
+
+Write
 
 ```math
 H_p(s,t)
-=
-(1-A)(1-B)L_p(s,t).
+=1+\alpha_p p^{-s}+\alpha_p p^{-t}
+  +\beta_p p^{-s-t}\qquad(p>2),
 ```
 
-Expanding gives
+where
 
 ```math
-H_p(s,t)
-=
-(1-A)(1-B)
-+
-\frac{p}{p-1}A(1-B)
-+
-\frac{p}{p-1}B(1-A).
-```
-
-Collecting terms,
-
-```math
-H_p(s,t)
-=
-1
-+
-\frac{A+B}{p-1}
--
-\frac{p+1}{p-1}AB.
-```
-
-Thus
-
-```math
-\boxed{
-H_p(s,t)
-=
-1
-+
-\frac{p^{-1-s}+p^{-1-t}}{p-1}
--
-\frac{p+1}{p-1}p^{-2-s-t}.
-}
-```
-
-At
-
-```math
-s=t=0,
-```
-
-we have
-
-```math
-H_p(0,0)
-=
-1+
-\frac{2/p}{p-1}
--
-\frac{p+1}{p-1}\frac1{p^2}.
-```
-
-The nonconstant part is
-
-```math
-\frac{2p-(p+1)}
-{p^2(p-1)}
-=
-\frac{p-1}{p^2(p-1)}
-=
-\frac1{p^2}.
-```
-
-Hence, for every odd prime $p$,
-
-```math
-\boxed{
-H_p(0,0)=1+\frac1{p^2}.
-}
-```
-
-This identity is the main source of the final constant.
-
----
-
-## 5.2 The factor at $2$
-
-Let
-
-```math
-A=2^{-1-s},
+\alpha_p=\frac1{p(p-1)},
 \qquad
-B=2^{-1-t}.
+\beta_p=-\frac{p+1}{p^2(p-1)}.
 ```
 
-Then
+Also, $H_2(s,t)=\frac12-\frac18\,2^{-s-t}$.
+
+Expanding the local polynomials defines coefficients $h(d,e)$. Unique prime factorization makes each local choice unique for a fixed pair $(d,e)$. For any fixed $0<\eta<1/2$, the product of the weighted absolute coefficient sums is
 
 ```math
-L_2(s,t)
-=
-\frac12
-+
-\frac{A}{2(1-A)}
-+
-\frac{B}{2(1-B)}.
-```
-
-Thus
-
-```math
-H_2(s,t)
-=
-(1-A)(1-B)L_2(s,t).
-```
-
-Multiplying out,
-
-```math
-H_2(s,t)
-=
-\frac12
-\left[
-(1-A)(1-B)
-+
-A(1-B)
-+
-B(1-A)
-\right].
-```
-
-Inside the brackets,
-
-```math
-(1-A)(1-B)+A(1-B)+B(1-A)
-=
-1-AB.
-```
-
-Therefore
-
-```math
-\boxed{
-H_2(s,t)
-=
-\frac{1-2^{-2-s-t}}{2}.
-}
-```
-
-At $s=t=0$,
-
-```math
-H_2(0,0)
-=
-\frac{1-\frac14}{2}
-=
-\boxed{\frac38}.
-```
-
----
-
-# 6. Absolute convergence of the regular Euler product
-
-We must justify that after removing the two zeta poles, $H(s,t)$ is regular around
-
-```math
-(s,t)=(0,0).
-```
-
-Choose any fixed
-
-```math
-0<\delta<\frac12
-```
-
-and suppose
-
-```math
-|\Re s|\le\delta,\qquad
-|\Re t|\le\delta.
-```
-
-For an odd prime $p$,
-
-```math
-p^{-1-s}
-=
-O(p^{-1+\delta}),
-```
-
-and similarly
-
-```math
-p^{-1-t}
-=
-O(p^{-1+\delta}).
-```
-
-From the exact formula
-
-```math
-H_p(s,t)
-=
-1
-+
-\frac{p^{-1-s}+p^{-1-t}}{p-1}
--
-\frac{p+1}{p-1}p^{-2-s-t},
-```
-
-we therefore obtain
-
-```math
-H_p(s,t)-1
-=
-O(p^{-2+\delta})
-+
-O(p^{-2+2\delta}).
-```
-
-Since
-
-```math
-2-2\delta>1,
-```
-
-the prime sum
-
-```math
-\sum_p
-|H_p(s,t)-1|
-```
-
-converges uniformly on a sufficiently small closed neighborhood of $(0,0)$.
-
-Hence the Euler product
-
-```math
-H(s,t)
-=
-H_2(s,t)
-\prod_{p>2}H_p(s,t)
-```
-
-converges absolutely and locally uniformly there.
-
-In particular,
-
-```math
-H(0,0)
-```
-
-is finite and nonzero.
-
-Moreover, $H$ has an absolutely convergent two-variable Dirichlet expansion in a neighborhood of the origin:
-
-```math
-\boxed{
-H(s,t)
-=
-\sum_{d,e\ge1}
-h(d,e)d^{-s}e^{-t},
-}
-```
-
-with, for some $\eta>0$,
-
-```math
-\sum_{d,e\ge1}
-|h(d,e)|d^\eta e^\eta
-<
-\infty.
-```
-
-In particular,
-
-```math
-\boxed{
-\sum_{d,e\ge1}|h(d,e)|<\infty.
-}
-```
-
-This absolute summability will allow us to recover the partial sums without requiring a heavy Tauberian theorem.
-
----
-
-# 7. Evaluation of $H(0,0)$
-
-We have shown
-
-```math
-H(0,0)
-=
-\frac38
+\left(\frac12+\frac{2^{2\eta}}8\right)
 \prod_{p>2}
-\left(1+\frac1{p^2}\right).
-```
-
-Use the identity
-
-```math
-1+x
-=
-\frac{1-x^2}{1-x}
-```
-
-with
-
-```math
-x=p^{-2}.
-```
-
-Thus
-
-```math
-1+\frac1{p^2}
-=
-\frac{1-p^{-4}}{1-p^{-2}}.
-```
-
-Taking the product over all primes,
-
-```math
-\prod_p
-\left(1+\frac1{p^2}\right)
-=
-\frac{\prod_p(1-p^{-4})}
-{\prod_p(1-p^{-2})}.
-```
-
-By the Euler products for the zeta function,
-
-```math
-\prod_p(1-p^{-4})
-=
-\frac1{\zeta(4)},
-```
-
-and
-
-```math
-\prod_p(1-p^{-2})
-=
-\frac1{\zeta(2)}.
-```
-
-Therefore
-
-```math
-\prod_p
-\left(1+\frac1{p^2}\right)
-=
-\frac{\zeta(2)}{\zeta(4)}.
-```
-
-Using
-
-```math
-\zeta(2)=\frac{\pi^2}{6},
-\qquad
-\zeta(4)=\frac{\pi^4}{90},
-```
-
-we get
-
-```math
-\frac{\zeta(2)}{\zeta(4)}
-=
-\frac{\pi^2/6}{\pi^4/90}
-=
-\frac{15}{\pi^2}.
-```
-
-The $p=2$ factor of this product is
-
-```math
-1+\frac1{2^2}
-=
-\frac54.
-```
-
-Consequently
-
-```math
-\prod_{p>2}
-\left(1+\frac1{p^2}\right)
-=
-\frac{15/\pi^2}{5/4}
-=
-\frac{12}{\pi^2}.
-```
-
-Hence
-
-```math
-H(0,0)
-=
-\frac38\cdot\frac{12}{\pi^2}.
-```
-
-Therefore
-
-```math
-\boxed{
-H(0,0)
-=
-\frac9{2\pi^2}.
-}
-```
-
-Numerically,
-
-```math
-\boxed{
-H(0,0)
-=
-0.45594532639052\ldots
-}
-```
-
----
-
-# 8. Recovering the partial sums
-
-It remains to show that the value $H(0,0)$ is indeed the leading constant in $W(J)$.
-
-Because
-
-```math
-F(s,t)
-=
-\zeta(1+s)\zeta(1+t)H(s,t),
-```
-
-and
-
-```math
-\zeta(1+s)
-=
-\sum_{m\ge1}\frac{m^{-s}}m,
-```
-
-the coefficient identity associated with the product is
-
-```math
-\frac{\mathbf 1_{(u,a)=1}}{\varphi(4ua)}
-=
-\sum_{\substack{dm=u\\en=a}}
-\frac{h(d,e)}{mn}.
-```
-
-Summing over
-
-```math
-u,a\le J
-```
-
-gives
-
-```math
-W(J)
-=
-\sum_{d,e\le J}
-h(d,e)
 \left(
-\sum_{m\le J/d}\frac1m
-\right)
-\left(
-\sum_{n\le J/e}\frac1n
+1+\frac{2p^\eta}{p(p-1)}
++\frac{(p+1)p^{2\eta}}{p^2(p-1)}
 \right).
 ```
 
-Define the harmonic sum
+The nonconstant terms are $O(p^{-2+\eta}+p^{-2+2\eta})$, whose sum over primes converges. Expanding finite products with nonnegative coefficients and passing to the limit therefore gives
 
 ```math
-\mathcal H(x)
-:=
-\sum_{1\le n\le x}\frac1n,
+\sum_{d,e\ge1}|h(d,e)|d^\eta e^\eta<\infty.
 ```
 
-where the upper bound means $n\le\lfloor x\rfloor$.
+In particular,
 
-Then
+```math
+H(s,t)=\sum_{d,e\ge1}h(d,e)d^{-s}e^{-t},
+\qquad
+\sum_{d,e\ge1}|h(d,e)|<\infty.
+```
+
+The expansion converges absolutely for $\Re s,\Re t\ge-\eta$ and agrees with the Euler product wherever it was already defined. In particular,
+
+```math
+H(0,0)=\sum_{d,e\ge1}h(d,e).
+```
+
+## 5. Evaluation of the constant
+
+For each odd prime,
+
+```math
+H_p(0,0)
+=1+\frac2{p(p-1)}-\frac{p+1}{p^2(p-1)}
+=1+\frac1{p^2},
+```
+
+while $H_2(0,0)=3/8$. Hence
+
+```math
+H(0,0)=\frac38\prod_{p>2}\left(1+\frac1{p^2}\right).
+```
+
+Using $1+p^{-2}=(1-p^{-4})/(1-p^{-2})$,
+
+```math
+\prod_p\left(1+\frac1{p^2}\right)
+=\frac{\zeta(2)}{\zeta(4)}
+=\frac{15}{\pi^2}.
+```
+
+Removing the factor $1+2^{-2}=5/4$ yields
 
 ```math
 \boxed{
-W(J)
-=
-\sum_{d,e\le J}
-h(d,e)
-\mathcal H(J/d)
-\mathcal H(J/e).
+H(0,0)=\frac38\cdot\frac{15/\pi^2}{5/4}
+=\frac9{2\pi^2}.
 }
 ```
 
-For every fixed positive integer $d$,
+## 6. Recovering the partial sums
+
+In the region of absolute convergence, the factorization
+$F(s,t)=\zeta(1+s)\zeta(1+t)H(s,t)$ gives the coefficient identity
 
 ```math
-\mathcal H(J/d)
-=
-\log(J/d)+\gamma+o(1),
+\frac{\mathbf1_{\gcd(u,a)=1}}{\varphi(4ua)}
+=\sum_{\substack{dm=u\\ en=a}}\frac{h(d,e)}{mn}.
 ```
 
-and therefore
+Summing over $u,a\le J$ and defining
 
 ```math
-\frac{\mathcal H(J/d)}{\log J}
-\longrightarrow1
+\mathcal H(x)=\sum_{1\le n\le x}\frac1n
 ```
 
-as $J\to\infty$.
-
-The same holds for $e$.
-
-Now define
+gives the exact identity
 
 ```math
-A_J(d)
-=
+W(J)=\sum_{d,e\le J}h(d,e)\mathcal H(J/d)\mathcal H(J/e).
+```
+
+For $J\ge3$, set
+
+```math
+A_J(d)=
 \begin{cases}
-\dfrac{\mathcal H(J/d)}{\log J},&d\le J,\\[1ex]
+\mathcal H(J/d)/\log J,&d\le J,\\
 0,&d>J.
 \end{cases}
 ```
 
-For every fixed $d$,
+For each fixed $d$, the estimate $\mathcal H(x)=\log x+O(1)$ as $x\to\infty$ implies $A_J(d)\to1$. Moreover,
 
 ```math
-A_J(d)\longrightarrow1.
-```
-
-Furthermore, for $J\ge3$,
-
-```math
-0\le A_J(d)
-\le
-\frac{\mathcal H(J)}{\log J}.
-```
-
-Since
-
-```math
-\mathcal H(J)\le1+\log J,
-```
-
-we have a uniform bound such as
-
-```math
-|A_J(d)|\le2
-```
-
-for all sufficiently large $J$.
-
-Therefore
-
-```math
-\frac{W(J)}{(\log J)^2}
-=
-\sum_{d,e\ge1}
-h(d,e)A_J(d)A_J(e).
-```
-
-Because
-
-```math
-|A_J(d)A_J(e)|\le4
-```
-
-and
-
-```math
-\sum_{d,e}|h(d,e)|<\infty,
-```
-
-the dominated convergence theorem for absolutely convergent series applies.
-
-Hence
-
-```math
-\lim_{J\to\infty}
-\frac{W(J)}{(\log J)^2}
-=
-\sum_{d,e\ge1}h(d,e).
-```
-
-But by absolute convergence,
-
-```math
-\sum_{d,e\ge1}h(d,e)
-=
-H(0,0).
-```
-
-We already evaluated this quantity:
-
-```math
-H(0,0)
-=
-\frac9{2\pi^2}.
+0\le A_J(d)\le\frac{1+\log J}{\log J}\le2
+\qquad(J\ge3).
 ```
 
 Therefore
 
 ```math
-\boxed{
-\lim_{J\to\infty}
 \frac{W(J)}{(\log J)^2}
-=
-\frac9{2\pi^2}.
-}
+=\sum_{d,e\ge1}h(d,e)A_J(d)A_J(e).
 ```
 
-This proves the theorem.
+The summands are bounded in absolute value by $4|h(d,e)|$, a summable majorant by Section 4. Dominated convergence now gives
 
 ```math
-\boxed{\square}
+\lim_{J\to\infty}\frac{W(J)}{(\log J)^2}
+=\sum_{d,e\ge1}h(d,e)
+=H(0,0)
+=\frac9{2\pi^2}.
 ```
 
----
+This proves the theorem. $\square$
 
-# 9. Immediate corollary
+## 7. The 0.45 lower bound
 
-Since
+**Corollary.** There exists $J_0$ such that
 
 ```math
-\frac9{2\pi^2}
-=
-0.45594532639052\ldots
->
-0.45,
+W(J)\ge0.45(\log J)^2
+\qquad\text{for every }J\ge J_0.
 ```
 
-the theorem immediately implies:
+Indeed, the normalized sum tends to $9/(2\pi^2)=0.45594532639052\ldots>0.45$. By the definition of a limit, it eventually exceeds $0.45$. $\square$
 
-### Corollary
+This implies the asymptotic lower bound
+$W(J)\ge(0.45+o(1))(\log J)^2$.
+The proof does not specify a numerical value of $J_0$.
+
+## 8. Context and scope
+
+[Dahan's preprint](https://arxiv.org/abs/2608.24035), Lemma 4.22, establishes
 
 ```math
-\boxed{
-W(J)
-\ge
-(0.45+o(1))(\log J)^2.
-}
+W(J)\ge
+\left(\frac3{2\pi^2}+o(1)\right)(\log J)^2.
 ```
 
-Indeed, more strongly,
+Section 6, item (8), gives numerical evidence for a limiting coefficient near $0.46$, and Section 7 asks for a lower-bound coefficient of at least $0.45$. The theorem identifies the exact leading constant and supplies that lower bound.
+
+The argument here concerns only $W(J)$; it does not establish the Erdős–Straus conjecture, an empty exceptional set, or a universal finite search depth. It uses no unproved number-theoretic hypothesis.
+
+## Numerical note
+
+For coprime positive integers $u,a$, multiplicativity gives
 
 ```math
-\boxed{
-W(J)
-=
-(0.45594532639052\ldots+o(1))
-(\log J)^2.
-}
+\varphi(4ua)=
+\begin{cases}
+2\varphi(u)\varphi(a),&u,a\text{ both odd},\\
+4\varphi(u)\varphi(a),&\text{exactly one of }u,a\text{ even}.
+\end{cases}
 ```
 
-Thus any argument requiring only the lower bound with coefficient $0.45$ may use the strictly larger asymptotic coefficient
+These are the only possibilities under coprimality. This identity permits finite checks using totients only up to $J$.
+
+At $J=25$, direct evaluation of $\varphi(4ua)$ and evaluation using this factorization agree in exact rational arithmetic:
 
 ```math
-\frac9{2\pi^2}.
+W(25)=\frac{13932881}{1900800}
+=7.330008943602693\ldots.
 ```
 
----
+Further finite values appear in the [overview](README.md#numerical-illustration). These checks illustrate the formula; the proof of its asymptotic behavior is in Sections 2–6.
 
-# 10. Relation to the Erdős–Straus literature
+## Background and reference
 
-Benjamin Dahan's 2026 preprint
+This note records a derivation developed with ChatGPT assistance on September 10, 2026. No claim of literature priority is made.
 
-> *Sieve dimension and search depth for the Erdős–Straus conjecture,  
-> $n\equiv1\pmod{24}$*,  
-> arXiv:2608.24035
-
-studies, among other things, the quantity
-
-```math
-W(J)
-=
-\sum_{\substack{u,a\le J\$u,a)=1}}
-\frac1{\varphi(4ua)}.
-```
-
-The paper obtains the lower bound
-
-```math
-W(J)
-\ge
-\left(
-\frac{3}{2\pi^2}+o(1)
-\right)
-(\log J)^2
-```
-
-by a simpler lower-estimate argument.
-
-Its numerical experiments suggest that the actual limiting coefficient is close to $0.46$, and the paper asks whether one can establish at least
-
-```math
-W(J)
-\ge
-(0.45+o(1))(\log J)^2.
-```
-
-The calculation above gives the candidate exact asymptotic coefficient
-
-```math
-\boxed{
-\frac9{2\pi^2}
-=
-0.45594532639052\ldots,
-}
-```
-
-which explains the observed value near $0.46$.
-
-The factor-of-three difference between
-
-```math
-\frac{3}{2\pi^2}
-```
-
-and
-
-```math
-\frac9{2\pi^2}
-```
-
-arises naturally once the complete Euler product, including the $2$-adic local factor and the full coprimality structure, is retained.
-
----
-
-# 11. What this result does and does not establish
-
-This note establishes, subject to independent verification of the argument,
-
-```math
-W(J)
-\sim
-\frac9{2\pi^2}(\log J)^2.
-```
-
-It therefore establishes the requested $0.45$ lower bound if the proof is confirmed.
-
-It does **not** establish:
-
-- the Erdős–Straus conjecture;
-- emptiness of the exceptional sets in Dahan's sieve argument;
-- a finite universal search depth;
-- a termination theorem for Type I or Type II decompositions;
-- priority over any unpublished or independently developed proof.
-
-The distinction is important.
-
-This is a result about one analytic arithmetic sum occurring inside a broader approach to the Erdős–Straus conjecture.
-
----
-
-# 12. Independent verification checklist
-
-A reviewer wishing to check the proof can verify it in the following order.
-
-1. Confirm the Euler factor for every odd prime:
-
-```math
-L_p(s,t)
-=
-1+
-\frac{p^{-s}}
-{(p-1)(1-p^{-1-s})}
-+
-\frac{p^{-t}}
-{(p-1)(1-p^{-1-t})}.
-```
-
-2. Confirm the special $2$-adic factor:
-
-```math
-L_2(s,t)
-=
-\frac12+
-\frac12\frac{2^{-1-s}}{1-2^{-1-s}}
-+
-\frac12\frac{2^{-1-t}}{1-2^{-1-t}}.
-```
-
-3. After factoring
-
-```math
-\zeta(1+s)\zeta(1+t),
-```
-
-verify
-
-```math
-H_p(0,0)=1+\frac1{p^2}
-\qquad(p>2)
-```
-
-and
-
-```math
-H_2(0,0)=\frac38.
-```
-
-4. Verify
-
-```math
-\prod_{p>2}
-\left(1+\frac1{p^2}\right)
-=
-\frac{12}{\pi^2}.
-```
-
-5. Therefore check
-
-```math
-H(0,0)
-=
-\frac38\frac{12}{\pi^2}
-=
-\frac9{2\pi^2}.
-```
-
-6. Check the local convergence estimate
-
-```math
-H_p(s,t)-1
-=
-O(p^{-2+\delta})+
-O(p^{-2+2\delta})
-```
-
-for some
-
-```math
-0<\delta<\frac12.
-```
-
-7. Use the resulting absolute convergence of the coefficient series of $H$ to justify dominated convergence in the partial-sum identity.
-
-No unproved hypothesis such as the Riemann hypothesis is used.
-
----
-
-# 13. Provenance and review status
-
-This derivation was produced during an AI-assisted mathematical investigation using ChatGPT on September 10, 2026.
-
-The investigation began from the open quantitative problem concerning
-
-```math
-W(J)
-=
-\sum_{\substack{u,a\le J\$u,a)=1}}
-\frac1{\varphi(4ua)}
-```
-
-appearing in recent work on the Erdős–Straus conjecture.
-
-The argument was derived by forming the full two-variable Euler product, retaining the special $2$-adic factor, extracting the two zeta poles, and evaluating the remaining regular Euler product at the origin.
-
-The resulting coefficient is
-
-```math
-\boxed{
-\frac9{2\pi^2}.
-}
-```
-
-This repository is intended to make the derivation publicly inspectable and independently reproducible.
-
-**No claim of literature priority is made until an independent mathematical review and a broader prior-art search have been completed.**
-
-If an error is found, it should be reported publicly and this document should be corrected rather than silently replaced.
-
----
-
-# Reference
-
-Benjamin Dahan,  
-*Sieve dimension and search depth for the Erdős–Straus conjecture, $n\equiv1\pmod{24}$*,  
-arXiv:2608.24035, 2026.
+Benjamin Dahan, *Sieve dimension and search depth for the Erdős–Straus conjecture, $n\equiv1\pmod{24}$*, arXiv:2608.24035 (2026). [Abstract](https://arxiv.org/abs/2608.24035) · [Full text](https://arxiv.org/html/2608.24035v1)
