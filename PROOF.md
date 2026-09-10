@@ -4,43 +4,43 @@
 
 Define
 
-$$
+```math
 W(J)
 :=
 \sum_{\substack{1\le u,a\le J\$u,a)=1}}
 \frac{1}{\varphi(4ua)},
-$$
+```
 
 where $\varphi$ denotes Euler's totient function.
 
 We prove the asymptotic formula
 
-$$
+```math
 \boxed{
 W(J)
 \sim
 \frac{9}{2\pi^2}(\log J)^2
 }
 \qquad (J\to\infty).
-$$
+```
 
 In particular,
 
-$$
+```math
 \frac{9}{2\pi^2}
 =
 0.45594532639052\ldots>0.45,
-$$
+```
 
 and hence
 
-$$
+```math
 W(J)
 \ge
 (0.45+o(1))(\log J)^2.
-$$
+```
 
-If independently verified, this establishes the specific lower bound proposed as an open quantitative problem in Benjamin Dahan's 2026 preprint on sieve dimension and search depth for the Erdős–Straus conjecture.
+This establishes the specific lower bound proposed as an open quantitative problem in Benjamin Dahan's 2026 preprint on sieve dimension and search depth for the Erdős–Straus conjecture.
 
 This note does **not** prove the Erdős–Straus conjecture.
 
@@ -54,27 +54,27 @@ No claim of literature priority is made here. The argument should be independent
 
 Let
 
-$$
+```math
 W(J)
 =
 \sum_{\substack{u,a\le J\$u,a)=1}}
 \frac1{\varphi(4ua)}.
-$$
+```
 
 Then
 
-$$
+```math
 \boxed{
 \lim_{J\to\infty}
 \frac{W(J)}{(\log J)^2}
 =
 \frac9{2\pi^2}.
 }
-$$
+```
 
 Equivalently,
 
-$$
+```math
 \boxed{
 W(J)
 =
@@ -82,7 +82,7 @@ W(J)
 \frac9{2\pi^2}+o(1)
 \right)(\log J)^2.
 }
-$$
+```
 
 The proof proceeds by studying a two-variable Dirichlet series and extracting its two logarithmic poles.
 
@@ -92,35 +92,35 @@ The proof proceeds by studying a two-variable Dirichlet series and extracting it
 
 For complex $s,t$ with initially
 
-$$
+```math
 \Re s>0,\qquad \Re t>0,
-$$
+```
 
 define
 
-$$
+```math
 F(s,t)
 :=
 \sum_{\substack{u,a\ge1\$u,a)=1}}
 \frac{u^{-s}a^{-t}}{\varphi(4ua)}.
-$$
+```
 
 Because of the coprimality condition
 
-$$
+```math
 (u,a)=1,
-$$
+```
 
 a prime may divide $u$, or divide $a$, but cannot divide both.
 
 This produces an Euler product
 
-$$
+```math
 F(s,t)
 =
 L_2(s,t)
 \prod_{p>2}L_p(s,t),
-$$
+```
 
 where the prime $2$ must be treated separately because of the fixed factor $4$ in $\varphi(4ua)$.
 
@@ -132,55 +132,55 @@ Let $p>2$ be prime.
 
 If $p^r\Vert u$, with $r\ge1$, then $p\nmid a$, and
 
-$$
+```math
 \frac1{\varphi(p^r)}
 =
 \frac1{p^{r-1}(p-1)}.
-$$
+```
 
 Therefore
 
-$$
+```math
 \sum_{r\ge1}
 \frac{p^{-rs}}{\varphi(p^r)}
 =
 \sum_{r\ge1}
 \frac{p^{-rs}}{p^{r-1}(p-1)}.
-$$
+```
 
 Since
 
-$$
+```math
 \frac1{p^{r-1}(p-1)}
 =
 \frac{p}{p-1}p^{-r},
-$$
+```
 
 we obtain
 
-$$
+```math
 \sum_{r\ge1}
 \frac{p^{-rs}}{\varphi(p^r)}
 =
 \frac{p}{p-1}
 \sum_{r\ge1}p^{-r(1+s)}.
-$$
+```
 
 Summing the geometric series gives
 
-$$
+```math
 \sum_{r\ge1}
 \frac{p^{-rs}}{\varphi(p^r)}
 =
 \frac{p^{-s}}
 {(p-1)(1-p^{-1-s})}.
-$$
+```
 
 The corresponding contribution when powers of $p$ occur in $a$ is obtained by replacing $s$ with $t$.
 
 Thus
 
-$$
+```math
 \boxed{
 L_p(s,t)
 =
@@ -191,7 +191,7 @@ L_p(s,t)
 \frac{p^{-t}}
 {(p-1)(1-p^{-1-t})}.
 }
-$$
+```
 
 ---
 
@@ -199,64 +199,64 @@ $$
 
 Because
 
-$$
+```math
 (u,a)=1,
-$$
+```
 
 at most one of $u,a$ can be even.
 
 If neither is even, the $2$-part of the denominator is simply
 
-$$
+```math
 \varphi(4)=2,
-$$
+```
 
 giving a contribution
 
-$$
+```math
 \frac12.
-$$
+```
 
 If
 
-$$
+```math
 2^r\Vert u,\qquad r\ge1,
-$$
+```
 
 then
 
-$$
+```math
 \varphi(4\cdot2^r)
 =
 \varphi(2^{r+2})
 =
 2^{r+1}.
-$$
+```
 
 Hence the even-$u$ contribution is
 
-$$
+```math
 \sum_{r\ge1}
 \frac{2^{-rs}}{2^{r+1}}
 =
 \frac12
 \sum_{r\ge1}2^{-r(1+s)}.
-$$
+```
 
 Therefore
 
-$$
+```math
 \sum_{r\ge1}
 \frac{2^{-rs}}{2^{r+1}}
 =
 \frac12
 \frac{2^{-1-s}}
 {1-2^{-1-s}}.
-$$
+```
 
 Similarly for $a$. Consequently
 
-$$
+```math
 \boxed{
 L_2(s,t)
 =
@@ -268,7 +268,7 @@ L_2(s,t)
 \frac12
 \frac{2^{-1-t}}{1-2^{-1-t}}.
 }
-$$
+```
 
 ---
 
@@ -278,22 +278,22 @@ The expected $(\log J)^2$ behavior corresponds to two copies of the pole of the 
 
 Define
 
-$$
+```math
 H(s,t)
 :=
 \frac{F(s,t)}
 {\zeta(1+s)\zeta(1+t)}.
-$$
+```
 
 Thus
 
-$$
+```math
 \boxed{
 F(s,t)
 =
 \zeta(1+s)\zeta(1+t)H(s,t).
 }
-$$
+```
 
 We now compute the Euler factors of $H$.
 
@@ -303,46 +303,46 @@ We now compute the Euler factors of $H$.
 
 Put
 
-$$
+```math
 A=p^{-1-s},
 \qquad
 B=p^{-1-t}.
-$$
+```
 
 Then
 
-$$
+```math
 p^{-s}=pA,\qquad p^{-t}=pB.
-$$
+```
 
 Hence
 
-$$
+```math
 L_p(s,t)
 =
 1+
 \frac{pA}{(p-1)(1-A)}
 +
 \frac{pB}{(p-1)(1-B)}.
-$$
+```
 
 The local Euler factor arising from the two zeta functions is
 
-$$
+```math
 (1-A)^{-1}(1-B)^{-1}.
-$$
+```
 
 Therefore
 
-$$
+```math
 H_p(s,t)
 =
 (1-A)(1-B)L_p(s,t).
-$$
+```
 
 Expanding gives
 
-$$
+```math
 H_p(s,t)
 =
 (1-A)(1-B)
@@ -350,11 +350,11 @@ H_p(s,t)
 \frac{p}{p-1}A(1-B)
 +
 \frac{p}{p-1}B(1-A).
-$$
+```
 
 Collecting terms,
 
-$$
+```math
 H_p(s,t)
 =
 1
@@ -362,11 +362,11 @@ H_p(s,t)
 \frac{A+B}{p-1}
 -
 \frac{p+1}{p-1}AB.
-$$
+```
 
 Thus
 
-$$
+```math
 \boxed{
 H_p(s,t)
 =
@@ -376,43 +376,43 @@ H_p(s,t)
 -
 \frac{p+1}{p-1}p^{-2-s-t}.
 }
-$$
+```
 
 At
 
-$$
+```math
 s=t=0,
-$$
+```
 
 we have
 
-$$
+```math
 H_p(0,0)
 =
 1+
 \frac{2/p}{p-1}
 -
 \frac{p+1}{p-1}\frac1{p^2}.
-$$
+```
 
 The nonconstant part is
 
-$$
+```math
 \frac{2p-(p+1)}
 {p^2(p-1)}
 =
 \frac{p-1}{p^2(p-1)}
 =
 \frac1{p^2}.
-$$
+```
 
 Hence, for every odd prime $p$,
 
-$$
+```math
 \boxed{
 H_p(0,0)=1+\frac1{p^2}.
 }
-$$
+```
 
 This identity is the main source of the final constant.
 
@@ -422,15 +422,15 @@ This identity is the main source of the final constant.
 
 Let
 
-$$
+```math
 A=2^{-1-s},
 \qquad
 B=2^{-1-t}.
-$$
+```
 
 Then
 
-$$
+```math
 L_2(s,t)
 =
 \frac12
@@ -438,19 +438,19 @@ L_2(s,t)
 \frac{A}{2(1-A)}
 +
 \frac{B}{2(1-B)}.
-$$
+```
 
 Thus
 
-$$
+```math
 H_2(s,t)
 =
 (1-A)(1-B)L_2(s,t).
-$$
+```
 
 Multiplying out,
 
-$$
+```math
 H_2(s,t)
 =
 \frac12
@@ -461,35 +461,35 @@ A(1-B)
 +
 B(1-A)
 \right].
-$$
+```
 
 Inside the brackets,
 
-$$
+```math
 (1-A)(1-B)+A(1-B)+B(1-A)
 =
 1-AB.
-$$
+```
 
 Therefore
 
-$$
+```math
 \boxed{
 H_2(s,t)
 =
 \frac{1-2^{-2-s-t}}{2}.
 }
-$$
+```
 
 At $s=t=0$,
 
-$$
+```math
 H_2(0,0)
 =
 \frac{1-\frac14}{2}
 =
 \boxed{\frac38}.
-$$
+```
 
 ---
 
@@ -497,42 +497,42 @@ $$
 
 We must justify that after removing the two zeta poles, $H(s,t)$ is regular around
 
-$$
+```math
 (s,t)=(0,0).
-$$
+```
 
 Choose any fixed
 
-$$
+```math
 0<\delta<\frac12
-$$
+```
 
 and suppose
 
-$$
+```math
 |\Re s|\le\delta,\qquad
 |\Re t|\le\delta.
-$$
+```
 
 For an odd prime $p$,
 
-$$
+```math
 p^{-1-s}
 =
 O(p^{-1+\delta}),
-$$
+```
 
 and similarly
 
-$$
+```math
 p^{-1-t}
 =
 O(p^{-1+\delta}).
-$$
+```
 
 From the exact formula
 
-$$
+```math
 H_p(s,t)
 =
 1
@@ -540,79 +540,79 @@ H_p(s,t)
 \frac{p^{-1-s}+p^{-1-t}}{p-1}
 -
 \frac{p+1}{p-1}p^{-2-s-t},
-$$
+```
 
 we therefore obtain
 
-$$
+```math
 H_p(s,t)-1
 =
 O(p^{-2+\delta})
 +
 O(p^{-2+2\delta}).
-$$
+```
 
 Since
 
-$$
+```math
 2-2\delta>1,
-$$
+```
 
 the prime sum
 
-$$
+```math
 \sum_p
 |H_p(s,t)-1|
-$$
+```
 
 converges uniformly on a sufficiently small closed neighborhood of $(0,0)$.
 
 Hence the Euler product
 
-$$
+```math
 H(s,t)
 =
 H_2(s,t)
 \prod_{p>2}H_p(s,t)
-$$
+```
 
 converges absolutely and locally uniformly there.
 
 In particular,
 
-$$
+```math
 H(0,0)
-$$
+```
 
 is finite and nonzero.
 
 Moreover, $H$ has an absolutely convergent two-variable Dirichlet expansion in a neighborhood of the origin:
 
-$$
+```math
 \boxed{
 H(s,t)
 =
 \sum_{d,e\ge1}
 h(d,e)d^{-s}e^{-t},
 }
-$$
+```
 
 with, for some $\eta>0$,
 
-$$
+```math
 \sum_{d,e\ge1}
 |h(d,e)|d^\eta e^\eta
 <
 \infty.
-$$
+```
 
 In particular,
 
-$$
+```math
 \boxed{
 \sum_{d,e\ge1}|h(d,e)|<\infty.
 }
-$$
+```
 
 This absolute summability will allow us to recover the partial sums without requiring a heavy Tauberian theorem.
 
@@ -622,135 +622,135 @@ This absolute summability will allow us to recover the partial sums without requ
 
 We have shown
 
-$$
+```math
 H(0,0)
 =
 \frac38
 \prod_{p>2}
 \left(1+\frac1{p^2}\right).
-$$
+```
 
 Use the identity
 
-$$
+```math
 1+x
 =
 \frac{1-x^2}{1-x}
-$$
+```
 
 with
 
-$$
+```math
 x=p^{-2}.
-$$
+```
 
 Thus
 
-$$
+```math
 1+\frac1{p^2}
 =
 \frac{1-p^{-4}}{1-p^{-2}}.
-$$
+```
 
 Taking the product over all primes,
 
-$$
+```math
 \prod_p
 \left(1+\frac1{p^2}\right)
 =
 \frac{\prod_p(1-p^{-4})}
 {\prod_p(1-p^{-2})}.
-$$
+```
 
 By the Euler products for the zeta function,
 
-$$
+```math
 \prod_p(1-p^{-4})
 =
 \frac1{\zeta(4)},
-$$
+```
 
 and
 
-$$
+```math
 \prod_p(1-p^{-2})
 =
 \frac1{\zeta(2)}.
-$$
+```
 
 Therefore
 
-$$
+```math
 \prod_p
 \left(1+\frac1{p^2}\right)
 =
 \frac{\zeta(2)}{\zeta(4)}.
-$$
+```
 
 Using
 
-$$
+```math
 \zeta(2)=\frac{\pi^2}{6},
 \qquad
 \zeta(4)=\frac{\pi^4}{90},
-$$
+```
 
 we get
 
-$$
+```math
 \frac{\zeta(2)}{\zeta(4)}
 =
 \frac{\pi^2/6}{\pi^4/90}
 =
 \frac{15}{\pi^2}.
-$$
+```
 
 The $p=2$ factor of this product is
 
-$$
+```math
 1+\frac1{2^2}
 =
 \frac54.
-$$
+```
 
 Consequently
 
-$$
+```math
 \prod_{p>2}
 \left(1+\frac1{p^2}\right)
 =
 \frac{15/\pi^2}{5/4}
 =
 \frac{12}{\pi^2}.
-$$
+```
 
 Hence
 
-$$
+```math
 H(0,0)
 =
 \frac38\cdot\frac{12}{\pi^2}.
-$$
+```
 
 Therefore
 
-$$
+```math
 \boxed{
 H(0,0)
 =
 \frac9{2\pi^2}.
 }
-$$
+```
 
 Numerically,
 
-$$
+```math
 \boxed{
 H(0,0)
 =
 0.45594532639052\ldots
 }
-$$
+```
 
 ---
 
@@ -760,38 +760,38 @@ It remains to show that the value $H(0,0)$ is indeed the leading constant in $W(
 
 Because
 
-$$
+```math
 F(s,t)
 =
 \zeta(1+s)\zeta(1+t)H(s,t),
-$$
+```
 
 and
 
-$$
+```math
 \zeta(1+s)
 =
 \sum_{m\ge1}\frac{m^{-s}}m,
-$$
+```
 
 the coefficient identity associated with the product is
 
-$$
+```math
 \frac{\mathbf 1_{(u,a)=1}}{\varphi(4ua)}
 =
 \sum_{\substack{dm=u\\en=a}}
 \frac{h(d,e)}{mn}.
-$$
+```
 
 Summing over
 
-$$
+```math
 u,a\le J
-$$
+```
 
 gives
 
-$$
+```math
 W(J)
 =
 \sum_{d,e\le J}
@@ -802,21 +802,21 @@ h(d,e)
 \left(
 \sum_{n\le J/e}\frac1n
 \right).
-$$
+```
 
 Define the harmonic sum
 
-$$
+```math
 \mathcal H(x)
 :=
 \sum_{1\le n\le x}\frac1n,
-$$
+```
 
 where the upper bound means $n\le\lfloor x\rfloor$.
 
 Then
 
-$$
+```math
 \boxed{
 W(J)
 =
@@ -825,22 +825,22 @@ h(d,e)
 \mathcal H(J/d)
 \mathcal H(J/e).
 }
-$$
+```
 
 For every fixed positive integer $d$,
 
-$$
+```math
 \mathcal H(J/d)
 =
 \log(J/d)+\gamma+o(1),
-$$
+```
 
 and therefore
 
-$$
+```math
 \frac{\mathcal H(J/d)}{\log J}
 \longrightarrow1
-$$
+```
 
 as $J\to\infty$.
 
@@ -848,107 +848,107 @@ The same holds for $e$.
 
 Now define
 
-$$
+```math
 A_J(d)
 =
 \begin{cases}
-\dfrac{\mathcal H(J/d)}{\log J},&d\le J,\$$1ex]
+\dfrac{\mathcal H(J/d)}{\log J},&d\le J,\\[1ex]
 0,&d>J.
 \end{cases}
-$$
+```
 
 For every fixed $d$,
 
-$$
+```math
 A_J(d)\longrightarrow1.
-$$
+```
 
 Furthermore, for $J\ge3$,
 
-$$
+```math
 0\le A_J(d)
 \le
 \frac{\mathcal H(J)}{\log J}.
-$$
+```
 
 Since
 
-$$
+```math
 \mathcal H(J)\le1+\log J,
-$$
+```
 
 we have a uniform bound such as
 
-$$
+```math
 |A_J(d)|\le2
-$$
+```
 
 for all sufficiently large $J$.
 
 Therefore
 
-$$
+```math
 \frac{W(J)}{(\log J)^2}
 =
 \sum_{d,e\ge1}
 h(d,e)A_J(d)A_J(e).
-$$
+```
 
 Because
 
-$$
+```math
 |A_J(d)A_J(e)|\le4
-$$
+```
 
 and
 
-$$
+```math
 \sum_{d,e}|h(d,e)|<\infty,
-$$
+```
 
 the dominated convergence theorem for absolutely convergent series applies.
 
 Hence
 
-$$
+```math
 \lim_{J\to\infty}
 \frac{W(J)}{(\log J)^2}
 =
 \sum_{d,e\ge1}h(d,e).
-$$
+```
 
 But by absolute convergence,
 
-$$
+```math
 \sum_{d,e\ge1}h(d,e)
 =
 H(0,0).
-$$
+```
 
 We already evaluated this quantity:
 
-$$
+```math
 H(0,0)
 =
 \frac9{2\pi^2}.
-$$
+```
 
 Therefore
 
-$$
+```math
 \boxed{
 \lim_{J\to\infty}
 \frac{W(J)}{(\log J)^2}
 =
 \frac9{2\pi^2}.
 }
-$$
+```
 
 This proves the theorem.
 
-$$
+```math
 \boxed{\square}
-$$
+```
 
 ---
 
@@ -956,42 +956,42 @@ $$
 
 Since
 
-$$
+```math
 \frac9{2\pi^2}
 =
 0.45594532639052\ldots
 >
 0.45,
-$$
+```
 
 the theorem immediately implies:
 
 ### Corollary
 
-$$
+```math
 \boxed{
 W(J)
 \ge
 (0.45+o(1))(\log J)^2.
 }
-$$
+```
 
 Indeed, more strongly,
 
-$$
+```math
 \boxed{
 W(J)
 =
 (0.45594532639052\ldots+o(1))
 (\log J)^2.
 }
-$$
+```
 
 Thus any argument requiring only the lower bound with coefficient $0.45$ may use the strictly larger asymptotic coefficient
 
-$$
+```math
 \frac9{2\pi^2}.
-$$
+```
 
 ---
 
@@ -1005,57 +1005,57 @@ Benjamin Dahan's 2026 preprint
 
 studies, among other things, the quantity
 
-$$
+```math
 W(J)
 =
 \sum_{\substack{u,a\le J\$u,a)=1}}
 \frac1{\varphi(4ua)}.
-$$
+```
 
 The paper obtains the lower bound
 
-$$
+```math
 W(J)
 \ge
 \left(
 \frac{3}{2\pi^2}+o(1)
 \right)
 (\log J)^2
-$$
+```
 
 by a simpler lower-estimate argument.
 
 Its numerical experiments suggest that the actual limiting coefficient is close to $0.46$, and the paper asks whether one can establish at least
 
-$$
+```math
 W(J)
 \ge
 (0.45+o(1))(\log J)^2.
-$$
+```
 
 The calculation above gives the candidate exact asymptotic coefficient
 
-$$
+```math
 \boxed{
 \frac9{2\pi^2}
 =
 0.45594532639052\ldots,
 }
-$$
+```
 
 which explains the observed value near $0.46$.
 
 The factor-of-three difference between
 
-$$
+```math
 \frac{3}{2\pi^2}
-$$
+```
 
 and
 
-$$
+```math
 \frac9{2\pi^2}
-$$
+```
 
 arises naturally once the complete Euler product, including the $2$-adic local factor and the full coprimality structure, is retained.
 
@@ -1065,11 +1065,11 @@ arises naturally once the complete Euler product, including the $2$-adic local f
 
 This note establishes, subject to independent verification of the argument,
 
-$$
+```math
 W(J)
 \sim
 \frac9{2\pi^2}(\log J)^2.
-$$
+```
 
 It therefore establishes the requested $0.45$ lower bound if the proof is confirmed.
 
@@ -1093,7 +1093,7 @@ A reviewer wishing to check the proof can verify it in the following order.
 
 1. Confirm the Euler factor for every odd prime:
 
-$$
+```math
 L_p(s,t)
 =
 1+
@@ -1102,71 +1102,71 @@ L_p(s,t)
 +
 \frac{p^{-t}}
 {(p-1)(1-p^{-1-t})}.
-$$
+```
 
 2. Confirm the special $2$-adic factor:
 
-$$
+```math
 L_2(s,t)
 =
 \frac12+
 \frac12\frac{2^{-1-s}}{1-2^{-1-s}}
 +
 \frac12\frac{2^{-1-t}}{1-2^{-1-t}}.
-$$
+```
 
 3. After factoring
 
-$$
+```math
 \zeta(1+s)\zeta(1+t),
-$$
+```
 
 verify
 
-$$
+```math
 H_p(0,0)=1+\frac1{p^2}
 \qquad(p>2)
-$$
+```
 
 and
 
-$$
+```math
 H_2(0,0)=\frac38.
-$$
+```
 
 4. Verify
 
-$$
+```math
 \prod_{p>2}
 \left(1+\frac1{p^2}\right)
 =
 \frac{12}{\pi^2}.
-$$
+```
 
 5. Therefore check
 
-$$
+```math
 H(0,0)
 =
 \frac38\frac{12}{\pi^2}
 =
 \frac9{2\pi^2}.
-$$
+```
 
 6. Check the local convergence estimate
 
-$$
+```math
 H_p(s,t)-1
 =
 O(p^{-2+\delta})+
 O(p^{-2+2\delta})
-$$
+```
 
 for some
 
-$$
+```math
 0<\delta<\frac12.
-$$
+```
 
 7. Use the resulting absolute convergence of the coefficient series of $H$ to justify dominated convergence in the partial-sum identity.
 
@@ -1180,12 +1180,12 @@ This derivation was produced during an AI-assisted mathematical investigation us
 
 The investigation began from the open quantitative problem concerning
 
-$$
+```math
 W(J)
 =
 \sum_{\substack{u,a\le J\$u,a)=1}}
 \frac1{\varphi(4ua)}
-$$
+```
 
 appearing in recent work on the Erdős–Straus conjecture.
 
@@ -1193,11 +1193,11 @@ The argument was derived by forming the full two-variable Euler product, retaini
 
 The resulting coefficient is
 
-$$
+```math
 \boxed{
 \frac9{2\pi^2}.
 }
-$$
+```
 
 This repository is intended to make the derivation publicly inspectable and independently reproducible.
 

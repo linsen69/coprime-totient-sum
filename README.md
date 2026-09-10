@@ -2,52 +2,52 @@
 
 This repository records an independently checkable, AI-assisted derivation concerning the arithmetic sum
 
-$$
+```math
 W(J)
 =
 \sum_{\substack{1\le u,a\le J\\(u,a)=1}}
 \frac{1}{\varphi(4ua)}.
-$$
+```
 
 The main claim proved in `PROOF.md` is
 
-$$
+```math
 \boxed{
 W(J)
 \sim
 \frac{9}{2\pi^2}(\log J)^2
 }
 \qquad (J\to\infty).
-$$
+```
 
 Equivalently,
 
-$$
+```math
 \boxed{
 \lim_{J\to\infty}
 \frac{W(J)}{(\log J)^2}
 =
 \frac{9}{2\pi^2}
 }
-$$
+```
 
 with
 
-$$
+```math
 \frac{9}{2\pi^2}
 =
 0.45594532639052\ldots
 >
 0.45.
-$$
+```
 
 Therefore the asymptotic implies
 
-$$
+```math
 W(J)
 \ge
 (0.45+o(1))(\log J)^2.
-$$
+```
 
 ## Why this is of interest
 
@@ -61,25 +61,25 @@ studies this sum in connection with the Erdős–Straus conjecture.
 
 The paper gives the lower bound
 
-$$
+```math
 W(J)
 \ge
 \left(
 \frac{3}{2\pi^2}+o(1)
 \right)(\log J)^2
-$$
+```
 
 and asks whether one can establish a coefficient of at least `0.45`.
 
 The derivation in this repository gives the candidate exact leading constant
 
-$$
+```math
 \boxed{
 \frac{9}{2\pi^2}
 =
 0.45594532639052\ldots
 }.
-$$
+```
 
 This also explains why numerical experiments suggest a limiting coefficient close to `0.46`.
 
@@ -87,68 +87,68 @@ This also explains why numerical experiments suggest a limiting coefficient clos
 
 The proof introduces the two-variable Dirichlet series
 
-$$
+```math
 F(s,t)
 =
 \sum_{\substack{u,a\ge1\\(u,a)=1}}
 \frac{u^{-s}a^{-t}}{\varphi(4ua)}
-$$
+```
 
 and factors it as
 
-$$
+```math
 F(s,t)
 =
 \zeta(1+s)\zeta(1+t)H(s,t).
-$$
+```
 
 For every odd prime $p$, the regular Euler factor satisfies
 
-$$
+```math
 H_p(0,0)
 =
 1+\frac1{p^2},
-$$
+```
 
 while the special factor at $p=2$ is
 
-$$
+```math
 H_2(0,0)=\frac38.
-$$
+```
 
 Hence
 
-$$
+```math
 H(0,0)
 =
 \frac38
 \prod_{p>2}
 \left(1+\frac1{p^2}\right).
-$$
+```
 
 Using
 
-$$
+```math
 \prod_p
 \left(1+\frac1{p^2}\right)
 =
 \frac{\zeta(2)}{\zeta(4)}
 =
 \frac{15}{\pi^2},
-$$
+```
 
 we obtain
 
-$$
+```math
 \prod_{p>2}
 \left(1+\frac1{p^2}\right)
 =
 \frac{12}{\pi^2},
-$$
+```
 
 and therefore
 
-$$
+```math
 \boxed{
 H(0,0)
 =
@@ -156,7 +156,7 @@ H(0,0)
 =
 \frac9{2\pi^2}.
 }
-$$
+```
 
 The remaining part of the proof justifies passing from this regular Euler product to the partial-sum asymptotic using absolute convergence and dominated convergence.
 
@@ -257,10 +257,10 @@ arXiv:2608.24035, 2026.
 
 ### Core claim
 
-$$
+```math
 \boxed{
 W(J)
 \sim
 \frac{9}{2\pi^2}(\log J)^2
 }
-$$
+```
