@@ -54,7 +54,7 @@ W(J)
 Benjamin Dahan's 2026 preprint
 
 > *Sieve dimension and search depth for the Erdős–Straus conjecture,  
-> \(n\equiv1\pmod{24}\)*  
+> $n\equiv1\pmod{24}$* 
 > arXiv:2608.24035
 
 studies this sum in connection with the Erdős–Straus conjecture.
